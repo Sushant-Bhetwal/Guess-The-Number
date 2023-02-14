@@ -16,6 +16,7 @@ const checkInput = (userInput, numberGuess) => {
             descriptionEl.innerHTML = `Congratulations. You guessed the number in ${numberGuess} attempts. It was ${randomNumber}`;
             descriptionEl.style.color = 'green';
             submitEl.style.display = "none";
+            restartEl.style.display = "inline-block"
         }
         else if (userInput < randomNumber) {
             descriptionEl.innerHTML = `Your guess is Low. Enter greater number`;
@@ -27,11 +28,19 @@ const checkInput = (userInput, numberGuess) => {
         }
     }
     else {
-        descriptionEl.innerHTML = `Sorry, You Loose. The number was ${randomNumber}`;
-        descriptionEl.style.color = 'red';
-        submitEl.style.display = "none";
-        restartEl.innerHTML = `Play Again`;
-        restartEl.style.display = "inline-block";
+        if (userInput === randomNumber) {
+            descriptionEl.innerHTML = `Congratulations. You guessed the number in ${numberGuess} attempts. It was ${randomNumber}`;
+            descriptionEl.style.color = 'green';
+            submitEl.style.display = "none";
+            restartEl.style.display = "inline-block"
+        }
+        else{
+            descriptionEl.innerHTML = `Sorry, You Loose. The number was ${randomNumber}`;
+            descriptionEl.style.color = 'red';
+            submitEl.style.display = "none";
+            restartEl.innerHTML = `Play Again`;
+            restartEl.style.display = "inline-block";
+        }
 
     }
 }
